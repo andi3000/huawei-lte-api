@@ -263,8 +263,8 @@ class WLan(ApiGroup):
     
     def wlan_on(self):
         return self._session.post_set('wlan/status-switch-settings', {
-            'radios': [{
-                'radio': {{
+            'radios': {
+                'radio': [{
                     'wifienable': 1,
                     'index': 0,
                     'ID': 'InternetGatewayDevice.X_Config.Wifi.Radio.1'
@@ -273,24 +273,24 @@ class WLan(ApiGroup):
                     'wifienable': 1,
                     'index': 1,
                     'ID': 'InternetGatewayDevice.X_Config.Wifi.Radio.2'
-                }}
-            }],
+                }]
+            },
             'WifiRestart': 1
         })
 
     def wlan_off(self):
         return self._session.post_set('wlan/status-switch-settings', {
-            'radios': [{
-                'radio': {
+            'radios': {
+                'radio': [{
                     'wifienable': 0,
                     'index': 0,
                     'ID': 'InternetGatewayDevice.X_Config.Wifi.Radio.1'
                 },
-                'radio': {
+                {
                     'wifienable': 0,
                     'index': 1,
                     'ID': 'InternetGatewayDevice.X_Config.Wifi.Radio.2'
-                }
-            }],
+                }]
+            },
             'WifiRestart': 1
         })
